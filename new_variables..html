@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>New Variables - Creation, Updating, and Scoping</title>
+    </head>
+    <body>
+        <script>
+            function setWidth() {
+                var width = 100;
+                console.log(width); //will show 100
+            }
+
+            setWidth(); //will show 100
+            console.log(width);//will show Uncaught ReferenceError: width undefined because var is declared locally (inside a function)
+        </script>
+    </body>
+</html>
