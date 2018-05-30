@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>New Variables - Creation, Updating, and Scoping</title>
+    </head>
+    <body>
+        <script>
+            // let can be updated
+            // let cannot be declared twice within a scope
+            let points = 50;
+            points = 60;
+
+            // const cannot be updated, it is used for variables that should not be changed.
+            const key = '12345';
+
+            const person = {
+                name: 'Wes',
+                age: 28
+            }
+            // will give an error if changed this way: const person = {name: 'Wes', age: 30} because the actual person variable cannot be changed but the attribute inside it can be changed this way : person.age = 30
+
+            Object.freeze(person); //can be used if you don't want the attributes to ever change.
+
+        </script>
+    </body>
+</html>

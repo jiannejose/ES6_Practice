@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>New Variables - Creation, Updating, and Scoping</title>
+    </head>
+    <body>
+        <script>
+            {
+                const name = 'wes';
+                console.log(name);
+            } 
+            // in console log, when you type name, it will show "". That is the variable name in window scope, not the one that we declared inside the block scope. The const name cannot be accessed globally because it is inside {}.
+
+            for(let i = 0; i < 10; i++) {
+                console.log(i);
+                setTimeout(function() {
+                console.log('The number is ' + i);
+                },1000);
+            }
+            // if var is used, it will show "The number is 10" 10x bacause in 1000ms, the whole loop is done. On the other side, if let is used like above, it will show "The number is 0" upto "The number is 10". However, when const is used, it will give us an error because const cannot be updated.
+        </script>
+    </body>
+</html>
