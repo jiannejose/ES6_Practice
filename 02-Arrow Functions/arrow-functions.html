@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>Arrow Functions</title>
+    </head>
+    <body>
+        <script>
+            const names = ['wes', 'kait', 'lux'];
+
+            const fullNames = names.map((name) => {
+                return `${name} bos`;
+            })
+
+            console.log(fullNames);
+            
+            // if there's only one parameter, can remove the parenthesis.
+            const fullNames2 = names.map(name => {
+                return `${name} bos`;
+            })
+
+            console.log(fullNames2);
+
+            // implicit return -- can remove 'return' and the {}
+            const fullNames3 = names.map(name => `${name} bos`);
+
+            console.log(fullNames3);
+
+            // Arrow function is an anonymous function
+            const sayMyName = (name) => {
+                console.log(`Hello ${name}!`);
+            }
+
+            sayMyName('Ji');
+        </script>
+    </body>
+</html>
