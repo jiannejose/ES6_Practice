@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>Arrow Functions</title>
+    </head>
+    <body>
+        <script>
+        //     //normal way
+        //    function calculateBill(total, tax, tip) {
+        //        return total + (total * tax) + (total * tip);
+        //    }
+
+        //    const totalBill = calculateBill(100, 0.13, 0.15);
+
+        //    console.log(totalBill);
+
+           // can also declare in the param
+           function calculateBill(total, tax = 0.13, tip = 0.15) {
+               return total + (total * tax) + (total * tip);
+           }
+
+           const totalBill = calculateBill(100, undefined, 0.25);
+
+           console.log(totalBill);
+        </script>
+    </body>
+</html>
