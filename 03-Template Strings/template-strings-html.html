@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>Template Strings HTML</title>
+    </head>
+    <body>
+        <script>
+            const person = {
+                name: 'Wes',
+                job: 'Web Developer',
+                city: 'Hamilton',
+                bio: 'Wes is a really cool guy that loves to teach web development.'
+            }
+
+            const markup = `
+                <div>
+                    <h2>${person.name} - A ${person.job}</h2>
+                    <h4>From ${person.city}</h4>
+                    <p>${person.bio}</p>
+                </div>     
+            `;
+
+            document.body.innerHTML = markup;
+        </script>
+    </body>
+</html>
