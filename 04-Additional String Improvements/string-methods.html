@@ -6,6 +6,7 @@
         <title>New String Methods</title>
     </head>
     <body>
+
         <script>
             const course = 'RFB2';
             const flightNumber = '20-AC2018-jz';
@@ -16,20 +17,25 @@
             const colour = 'Royal Blue';
 
             // .startsWith()
+            console.log(course.startsWith('RFB')); // will return true; cannot be case insensitive
+            console.log(flightNumber.startsWith('AC', 3)); // does flightNumber start with 'AC' from the 3rd character? true
 
             // .endsWith()
+            console.log(flightNumber.endsWith('jz')); // true
+            console.log(accountNumber.endsWith('RT', 11)); // does accountNumber end with 'RT', ignore the rest from the 11th character. true
 
-            // .includes()
+            // .includes() //previously, we use .contains();
+            console.log(flightNumber.includes('AC')); //not case insensitive
 
             // .repeat()
-
-            function leftPad(str, length = 20) {
-                return `→ ${' '.repeat(length - str.length)}${str}`;
+            function leftPad(string, length = 20) {
+                return `→ ${' '.repeat(length - string.length)}${string}`;
             }
 
-            console.log(leftPad(make));
-            console.log(leftPad(model));
-            console.log(leftPad(colour));
+            console.log(leftPad(make));           
+            console.log(leftPad(model));           
+            console.log(leftPad(colour));                     
+
         </script>
     </body>
 </html>
