@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>Desctructuring In Action</title>
+    </head>
+    <body>
+
+        <script>
+            function convertCurrency(amount) {
+                const converted = {
+                    PHP: amount * 52.89,
+                    GPB: amount * 0.75,
+                    AUD: amount * 1.32,
+                    MEX: amount * 20.34
+                }
+
+                return converted;
+            }
+
+            const USDConvertTo = convertCurrency(5);
+            console.log(USDConvertTo);
+            console.log(USDConvertTo.PHP);
+
+            const {PHP, GPB, AUD, MEX} = convertCurrency(100);
+            console.log(PHP, GPB, AUD, MEX);
+
+            function tipCalc({total=200, tip = 0.15, tax = 0.13} = {}) { 
+                return total + (total * tip) + (total * tax);
+            }
+
+            // added = {} so that it will not return undefined if the function is called without data inside the {}
+            const totalBill = tipCalc();
+            console.log(totalBill);
+
+            const bill = tipCalc({tip:0.15, total:100, tax:0.13}); 
+            console.log(bill);
+
+            //if not destructured, the data inside the () must be in order
+        </script>
+
+    </body>
+</html>
