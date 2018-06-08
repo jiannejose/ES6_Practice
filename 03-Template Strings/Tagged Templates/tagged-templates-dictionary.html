@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-        <title>Tagged Templates</title>
+        <title>Tagged Templates Dictionary Exercise</title>
         <style>
             abbr {
               border-bottom:1px dotted grey;
@@ -23,7 +23,7 @@
             };
 
             function addAbbreviations(strings, ...values) {
-                const abbreviated = values.map(value => {
+                const abbreviated = values.map((value) => {
                     if(dict[value]) {
                         return `<abbr title="${dict[value]}">${value}</abbr>`;
                     }
@@ -31,20 +31,23 @@
                     return value;
                 });
 
+                console.log(abbreviated);
+
                 return strings.reduce((sentence, string, i) => {
                     return `${sentence}${string}${abbreviated[i] || ''}`;
                 }, '');
             }
 
-            const first = 'Wes';
-            const last = 'Bos';
+            const first = 'Ji';
+            const last = 'Jose';
 
-            const sentence = addAbbreviations`My name is ${first} ${last} and I love to code ${'HTML'}, ${'CSS'}, and ${'JS'}.`;
+            const sentence = addAbbreviations`My name is ${first} ${last} and I love to code ${'HTML'}, ${'CSS'}, ${'JS'}.`;
 
             const bio = document.querySelector('.bio');
             const p = document.createElement('p');
             bio.appendChild(p);
             p.innerHTML = sentence;
+            
         </script>
     </body>
 </html>
