@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>Desctructuring In Action</title>
+    </head>
+    <body>
+
+        <script>
+            // Iterable - anything that can be looped over
+            const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
+
+            // for loop
+            for (let i = 0; i < cuts.length; i++) {
+                console.log(cuts[i]);
+            }
+
+            // forEach loop
+            cuts.forEach((cut) => {
+                console.log(cut);
+            });
+
+            // for i loop
+            for (const index in cuts ) {
+                console.log(cuts[index]);
+            }
+
+            // for of loop (cannot be used in objects)
+            for (const cut of cuts) {
+                if (cut === 'Brisket') {
+                    continue;
+                }
+                console.log(cut);
+                
+            }
+        </script>
+
+    </body>
+</html>
