@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>Iterables & Looping (for of Loop in Action)</title>
+    </head>
+    <body>
+
+        <p>Hi I'm p 01</p>
+        <p>Hi I'm p 02</p>
+        <p>Hi I'm p 03</p>
+        <p>Hi I'm p 04</p>
+        <p>Hi I'm p 05</p>
+        <p>Hi I'm p 06</p>
+        <p>Hi I'm p 07</p>
+        <p>Hi I'm p 08</p>
+        <p>Hi I'm p 09</p>
+        <p>Hi I'm p 10</p>
+
+        <script>
+            // SAMPLE #1
+            const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
+
+            for (const cut of cuts) {
+                console.log(cut);  
+            }
+
+            console.log(cuts.entries()); //shows Array Iterator
+            const meat = cuts.entries();
+            console.log(meat.next()); // will show if the loop is done (true if done, false if not); will show value: [0, 'Chuck']
+            console.log(meat.next()); // will show done: false, value: [1, 'Brisket']
+            console.log(meat.next()); // will show done: false, value: [2, 'Shank']
+            console.log(meat.next()); // will show done: false, value: [3, 'Short Rib']
+            console.log(meat.next()); // will show done: true, value: undefined
+
+            for (const [i, cut] of cuts.entries()) { // don't forget the .entries() ; [i, cut] is the destructuring
+                console.log(`${cut} is the number ${i+1} item.`);
+            }
+
+            // SAMPLE #2
+            function addUpNumbers() {
+                const arrayTest = (Array.from(arguments)); // will look like an array but the proto says Object. Cannot use for of loop
+                console.log(arrayTest);
+                const totalTest = arrayTest.reduce((prev, next) => prev + next);
+                console.log(`This is my way of trying to use the arguments and get the total. The answer is ${totalTest}.`);
+
+                // Wes'
+                let total = 0;
+                for (const num of arguments) {
+                    total += num;
+                }
+                
+                console.log(`This is Wes' version using for of loop. The answer is also ${total}.`);
+                return total;
+            }
+
+            addUpNumbers(10,23,52,34,12,13,123);
+
+            // SAMPLE #3
+            const name = 'Ji Jose'
+
+            for (const char of name) {
+                console.log(char);
+            }
+
+            // SAMPLE #4
+            const ps = document.querySelectorAll('p');
+            for (const paragraph of ps) {
+                paragraph.addEventListener('click', function() {
+                    console.log(this.textContent);
+                });
+            }
+        </script>
+
+    </body>
+</html>

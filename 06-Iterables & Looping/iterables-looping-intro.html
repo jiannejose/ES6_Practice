@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-        <title>Desctructuring In Action</title>
+        <title>Iterables & Looping</title>
     </head>
     <body>
 
@@ -26,9 +26,9 @@
                 console.log(cuts[index]);
             }
 
-            // for of loop (cannot be used in objects)
+            // for of loop (cannot be used in objects) -- BEST accdg to Wes Bos
             for (const cut of cuts) {
-                if (cut === 'Brisket') {
+                if (cut === 'Shank') {
                     continue;
                 }
                 console.log(cut);
