@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>Array .from() and .of()</title>
+    </head>
+    <body>
+        <div class="people">
+            <p>Wes</p>
+            <p>Kait</p>
+            <p>Snickers</p>
+        </div>
+
+        <h4 style="color: paleturquoise">Open the Console by hitting F12</h4>
+
+        <script>
+            // SAMPLE #1
+            // My version
+            const persons = Array.from(document.querySelectorAll('.people p'));
+            const names = persons.map((name) => {
+                console.log(name.textContent);
+                return name.textContent;
+            });
+            console.log(names);
+
+            // Wes'
+            const people = document.querySelectorAll('.people p');
+            const peopleArray = Array.from(people, person => {
+                console.log(person.textContent);
+                return person.textContent;
+            });
+            console.log(peopleArray);
+            
+            // SAMPLE #2
+            function sumAll() {
+                console.log(arguments); // looks like an array but it is an object
+
+                const numbersArray = Array.from(arguments);
+                console.log(numbersArray);
+
+                const total = numbersArray.reduce((prev, next) => prev + next);
+                console.log(total);
+            }
+
+            sumAll(2, 34, 23, 234, 234, 234234, 234234, 2342);
+
+
+            // SAMPLE #3 (Array.of())
+            const ages = Array.of(12,4,23,62,34);
+            console.log(ages);
+        </script>
+
+    </body>
+</html>

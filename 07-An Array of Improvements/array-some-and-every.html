@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>Array .some() and .every()</title>
+    </head>
+    <body>
+        <h4 style="color: paleturquoise">Open the Console by hitting F12</h4>
+
+        <script>
+            const ages = [32,15,19,12];
+
+            // 👵👨 is there at least one adult in the group?
+            const adultPresent = ages.some(age => age >= 18);
+            console.log(adultPresent); // returns a boolean; will return true
+
+            // 🍻 is everyone old enough to drink?
+            const allOldEnough = ages.every(age => age >= 19);
+            console.log(allOldEnough); // returns a boolean; will return false
+
+        </script>
+
+    </body>
+</html>
