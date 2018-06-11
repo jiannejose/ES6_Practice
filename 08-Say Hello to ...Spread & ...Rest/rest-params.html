@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>The ...Rest Param</title>
+    </head>
+    <body>
+        <h4 style="color: paleturquoise">Open the Console by hitting F12</h4>
+
+        <script>
+            // SAMPLE #1
+            function convertCurrency(rate, ...amounts) {
+                console.log(rate, amounts);
+                return amounts.map((amount) => amount * rate);
+            }
+            convertCurrency(53.11, 1, 2, 3, 4, 5);
+
+            // SAMPLE #2
+            const runner = ['Wes Bos', 123, 5.5, 1, 2, 3.5];
+            const [name, id, ...runs] = runner;
+            console.log(name, id, runs);
+
+            // SAMPLE #3
+            const team = ['Wes', 'Kait', 'Lux', 'Sheena', 'Kelly'];
+            const [captain, assistant, ...members] = team;
+            console.log(captain, assistant, members);
+            
+        </script>
+
+    </body>
+</html>

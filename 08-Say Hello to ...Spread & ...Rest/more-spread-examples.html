@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>Spread Examples</title>
+    </head>
+    <body>
+        <h4 style="color: paleturquoise">Open the Console by hitting F12</h4>
+
+        <div class="people">
+            <p>Wes</p>
+            <p>Kait</p>
+            <p>Randy</p>
+        </div>
+
+        <script>
+            // Get the names of the people and put in an array
+            const people = Array.from(document.querySelectorAll('.people p'));
+            const names = people.map(person => person.textContent);
+            console.log(names);
+
+            // make an array shopping list with milk and flour plus the ingredients to make deep dish
+            const deepDish = {
+                pizzaName: 'Deep Dish',
+                size: 'Medium',
+                ingredients: ['Marinara', 'Italian Sausage', 'Dough', 'Cheese'],
+            };
+            const shoppingList = ['Milk', 'Flour', ...deepDish.ingredients];
+            console.log(shoppingList);
+
+            // delete a mean comment on the array of objects of comments
+            const comments = [
+                { id: 209384, text: 'I love your dog!' },
+                { id: 523423, text: 'Cuuute! 🐐' },
+                { id: 632429, text: 'You are so dumb' },
+                { id: 192834, text: 'Nice work on this wes!' },
+            ];
+
+            const id = 632429;
+            // using filter (my version)
+            const filteredComments = comments.filter((comment) => comment.id !== id);
+            console.log(filteredComments);
+
+            // using findIndex (wes') 
+            const commentIndex = comments.findIndex((comment) => comment.id === id);
+            console.log(commentIndex);
+            const newComments = [...comments.slice(0, commentIndex), ...comments.slice(commentIndex + 1)];
+            console.log(newComments);
+            
+        </script>
+
+    </body>
+</html>
