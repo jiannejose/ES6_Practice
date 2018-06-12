@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>Object Literal Upgrades</title>
+    </head>
+    <body>
+        <h4 style="color: paleturquoise">Open the Console by hitting F12</h4>
+
+        <script>
+            //SAMPLE #1
+            //if property and value has the same name just write the word once
+            const first = 'Snickers';
+            const last = 'Bos';
+            const age = 2;
+            const breed = 'Kking Charles Cav';
+            const dog = {
+                firstName: first,
+                last, //last: last,
+                age, //age: age,
+                breed, //breed: breed,
+                pals: ['Hugo', 'Sunny'],
+            }
+            console.log(dog);
+            
+            //SAMPLE #2
+            // functions within an object, can be written this way
+            const modal = {
+                create(selector) {
+                },
+
+                open(content) {
+                },
+
+                close(goodbye) {
+                }
+            }
+
+            //SAMPLE #3
+            // make a tshirt that shows color, its opposite color, and what part of the shirt to color.
+            // library function to get the opposite of a certain color
+            function invertColor(color) {
+                return '#' + ("000000" + (0xFFFFFF ^ parseInt(color.substring(1),16)).toString(16)).slice(-6);
+            }
+
+            const key = 'pocketColor';
+            const value = '#ffc600';
+
+            const tShirt = {
+                [key]: value,
+                [`${key}Opposite`]: invertColor(value),
+            };
+            console.log(tShirt);
+
+            //SAMPLE #4
+            //assign each key to each value
+            const keys = ['size', 'color', 'weight'];
+            const values = ['medium', 'red', 100];
+
+            const shirt = {
+                [keys.shift()]: values.shift(), //removes the first element from the array and returns it.
+                [keys.shift()]: values.shift(),
+                [keys.shift()]: values.shift(),
+            };
+            console.log(shirt); // {size: "medium", color: "red", weight: 100}
+        </script>
+
+    </body>
+</html>
