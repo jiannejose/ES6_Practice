@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>Symbols</title>
+    </head>
+    <body>
+        <h4 style="color: paleturquoise">Open the Console by hitting F12</h4>
+
+        <script>
+            // 7 Primitive Type in JS : number, string, boolean, object, null, undefined, and symbol
+            // Symbols are unique identifiers
+            // We cannot loop symbols
+
+            const wes = Symbol('Wes');
+            const person = Symbol('Wes');
+            //wes is not the same as person even if they have the same descriptor 'Wes'
+
+            const classRoom = {
+                [Symbol('Mark')] : { grade: 50, gender: 'male' },
+                [Symbol('olivia')]: { grade: 80, gender: 'female' },
+                [Symbol('olivia')]: { grade: 80, gender: 'female' },
+            }; 
+            // The 2 olivias are 2 different persons. By using symbols, they are identified as unique individuals
+
+            for (const person in classRoom) {
+                console.log(person);
+            } // not gonna work
+
+            const syms = Object.getOwnPropertySymbols(classRoom);
+            const data = syms.map(sym => classRoom[sym]);
+            console.log(data);
+
+        </script>
+
+    </body>
+</html>
