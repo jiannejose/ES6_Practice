@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>Promises</title>
+    </head>
+    <body>
+        <h4 style="color: paleturquoise">Open the Console by hitting F12</h4>
+
+        <script>
+            //Promises are often used when fetching JSON API ; similar with $.getJSON or $.ajax
+            // Sample of JSON API : Wes' blog : wesbos.com/wp-json/wp/v2/posts
+            // Promises are something that happens between now and the end of time, something that will happen in the future but not immediately
+            // "Hey I don't hav ethe data from it just yet but here's some "I owe you the post", when it comes back, I'll let you know about that."
+            // .then() --- "when promises come back, do this..." ; it will only fire if the promises successfully comes back 
+            // .catch() --- when there's an error on getting the promises; if there's an error, will show "TypeError: Failed to fetch"
+
+            console.log('Going to fetch the latest post from Wes\' Blog');
+            const postsPromise = fetch('http://wesbos.com/wp-json/wp/v2/posts'); // cues up the search
+            console.log('Done!'); // shows immediately after the 'Going to fetch...'
+            console.log(postsPromise); // We don't see the actual data yet from Wes' Blog post but we can see the Promise Status: "pending"
+
+            postsPromise
+                .then(data => data.json()) // to tell the browser that we're getting a json file
+                .then(data => { console.log(data) }) // will show Object with all the data
+                .catch((err) => { console.log(err) }) // will catch any error along the way in fetching the data
+        </script>
+
+    </body>
+</html>
