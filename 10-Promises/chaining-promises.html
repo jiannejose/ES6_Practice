@@ -37,10 +37,32 @@
                 });
             }
 
-            getPostById(3)
-                .then((post => {
+            function hydrateAuthor(post) {
+                // create a new promise
+                return new Promise((resolve, reject) => {
+                    // find the author
+                    const foundAuthorDetails = authors.find((author) => author.name === post.author);
+                    // if there is an author, "hydrate" the post object with the author object
+                    if (foundAuthorDetails) {
+                        post.author = foundAuthorDetails;
+                        resolve(post);
+                    } else {
+                        reject(Error('Author Not Found'));
+                    }
+                });
+            }
+
+            getPostById(1)
+                .then(post => {
                     console.log(post);
-                }))
+                    return hydrateAuthor(post);
+                })
+                .then(post => {
+                    console.log(post);
+                })
+                .catch(err => {
+                    console.log(err);
+                })
         </script>
 
     </body>
