@@ -1,0 +1,16 @@
+{
+    "env": {
+        "es6": true,
+        "browser": true
+    },
+    "extends": "airbnb",
+    "rules": {
+        "no-console": "off",
+        "linebreak-style": "off",
+        "eol-last": "warn"
+    },
+    "plugins": [
+        "html",
+        "markdown"
+    ]
+}
